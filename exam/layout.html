@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #header {
+            width: 100%;
+            background-color: rgb(101, 145, 210);
+            min-height: 10vh;
+        }
+
+        #middle {
+            width: 70%;
+            background-color: dodgerblue;
+            min-height: 80vh;
+        }
+
+        #rightsidebar {
+            width: 30%;
+            min-height: 80vh;
+            background-color: rgb(215, 121, 6);
+        }
+
+        #footer {
+            width: 100%;
+            background-color: beige;
+            min-height: 10vh;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .upper {
+            height: 50%;
+            background-color: rgb(175, 122, 23);
+            display: flex;
+        }
+
+        .middleIn {
+            height: 25%;
+            background-color: rgb(12, 74, 74);
+        }
+
+        .lower {
+            height: 25%;
+            background-color: rgb(69, 66, 62);
+        }
+
+        .inUp {
+            width: 33.33%;
+            background-color: rebeccapurple;
+        }
+
+        .inMid {
+            width: 33.33%;
+            background-color: red;
+        }
+
+        .inLow {
+            width: 33.33%;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="header">Heading</div>
+
+    <div class="container">
+
+        <div id="middle">
+
+            <div class="upper">
+                <div class="inUp"></div>
+                <div class="inMid"></div>
+                <div class="inLow"></div>
+            </div>
+
+            <div class="middleIn"></div>
+
+            <div class="lower"></div>
+
+        </div>
+
+        <div id="rightsidebar">Sidebar</div>
+
+    </div>
+
+    <div id="footer">Footer</div>
+
+</body>
+</html>
