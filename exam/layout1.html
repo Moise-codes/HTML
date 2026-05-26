@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* HEADER */
+    .header {
+        background-color: aqua;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    /* MAIN CONTAINER */
+    .main {
+        display: flex;
+        min-height: 80vh;
+    }
+
+    .leftsidebar {
+        width: 20%;
+        background-color: gray;
+        padding: 10px;
+    }
+
+    .middle {
+        width: 60%;
+        background-color: dodgerblue;
+        padding: 10px;
+        color: white;
+    }
+
+    .rightsidebar {
+        width: 20%;
+        background-color: rgb(215,121,6);
+        padding: 10px;
+    }
+
+    /* FOOTER */
+    .footer {
+        height: 10vh;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid #ccc;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    HEADER
+</div>
+
+<div class="main">
+    <div class="leftsidebar">LEFT</div>
+    <div class="middle">MIDDLE</div>
+    <div class="rightsidebar">RIGHT</div>
+</div>
+
+<div class="footer">
+    FOOTER
+</div>
+
+</body>
+</html>

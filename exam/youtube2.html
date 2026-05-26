@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Roboto, Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            height: 56px;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #d3d3d3;
+            border-radius: 4px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 30px;
+            background-color: #d3d3d3;
+            border-radius: 4px;
+        }
+
+        .navbar-center {
+            flex: 1;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        .search-bar {
+            width: 100%;
+            height: 35px;
+            background-color: #e8e8e8;
+            border: 1px solid #d3d3d3;
+            border-radius: 20px;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #d3d3d3;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 56px;
+            width: 240px;
+            height: calc(100vh - 56px);
+            background-color: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            overflow-y: auto;
+            padding: 15px 0;
+        }
+
+        .sidebar-item {
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .sidebar-item-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sidebar-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .sidebar-text {
+            width: 80px;
+            height: 14px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 10px 0;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 240px;
+            margin-top: 56px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            min-height: calc(100vh - 56px);
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .video-item {
+            float: left;
+            width: calc(25% - 12px);
+            margin-right: 16px;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        .video-item:nth-child(4n) {
+            margin-right: 0;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 200px;
+            background-color: #d3d3d3;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .video-info {
+            padding: 0 2px;
+        }
+
+        .line {
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+
+        .line:last-child {
+            margin-bottom: 0;
+        }
+
+        .line:nth-child(2) {
+            width: 90%;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .video-item {
+                width: calc(33.333% - 11px);
+                margin-right: 16px;
+            }
+
+            .video-item:nth-child(4n) {
+                margin-right: 16px;
+            }
+
+            .video-item:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+            }
+
+            .video-item {
+                width: calc(50% - 8px);
+                margin-right: 16px;
+            }
+
+            .video-item:nth-child(3n) {
+                margin-right: 16px;
+            }
+
+            .video-item:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                position: relative;
+                top: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+                margin-top: 56px;
+            }
+
+            .video-item {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .thumbnail {
+                height: 180px;
+            }
+
+            .navbar-center {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="menu-icon"></div>
+            <div class="logo"></div>
+        </div>
+        
+        <div class="navbar-center">
+            <div class="search-bar"></div>
+        </div>
+
+        <div class="navbar-right">
+            <div class="profile-icon"></div>
+            <div class="profile-icon"></div>
+            <div class="profile-icon"></div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        
+        <div class="sidebar-divider"></div>
+        
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+        <div class="sidebar-item">
+            <div class="sidebar-item-content">
+                <div class="sidebar-icon"></div>
+                <div class="sidebar-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container clearfix">
+            <!-- Video Item 1 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 2 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 3 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 4 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 5 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 6 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 7 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 8 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 9 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 10 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 11 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <!-- Video Item 12 -->
+            <div class="video-item">
+                <div class="thumbnail"></div>
+                <div class="video-info">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
