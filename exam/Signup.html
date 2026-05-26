@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Q1 - Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-card">
+    <h2>Sign Up</h2>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter your username" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="Enter your email address" />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Enter your password" />
+        <span class="toggle-eye" onclick="togglePassword('password', this)">👁</span>
+      </div>
+    </div>
+
+    <button class="btn-primary">Sign Up</button>
+
+    <button class="btn-google">
+      <span class="g-icon">G</span> Sign Up with Google
+    </button>
+
+    <p class="auth-footer">Already registered? <a href="q2.html">Sign In</a></p>
+  </div>
+
+  <script>
+    function togglePassword(id, el) {
+      const input = document.getElementById(id);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+</body>
+</html>

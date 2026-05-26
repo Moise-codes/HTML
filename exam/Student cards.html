@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Q4 - Students With Cards</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="table-page">
+
+  <div class="table-header">
+    <h2>Students with cards</h2>
+    <div class="filter-group">
+      <div class="filter-btn">
+        ☰ Sort by class
+        <select><option>All</option><option>S1</option><option>S2</option><option>S3</option></select>
+      </div>
+      <div class="filter-btn">
+        ☰ Status
+        <select><option>Active</option><option>Inactive</option><option>Pending</option></select>
+      </div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th><input type="checkbox" /></th>
+        <th>Card owner</th>
+        <th>Owner class</th>
+        <th>Date of birth</th>
+        <th>Gender</th>
+        <th>Place of residence</th>
+        <th>Card number</th>
+        <th>Card status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="student-name">
+            <div class="avatar">MF</div>
+            Mucyo Faustine
+          </div>
+        </td>
+        <td>S6 MCB</td>
+        <td>2004-06-25</td>
+        <td>Female</td>
+        <td>Kigali, Kabubu</td>
+        <td>UBN000000BGCM</td>
+        <td><span class="badge inactive">Inactive</span></td>
+        <td class="action-btns">
+          <button>✏️</button>
+          <button class="del">🗑️</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="student-name">
+            <div class="avatar">NK</div>
+            Neza Kolba Cedric
+          </div>
+        </td>
+        <td>S1 A</td>
+        <td>2004-06-25</td>
+        <td>Male</td>
+        <td>Kigali, Remera</td>
+        <td>UBN000000BGCM</td>
+        <td><span class="badge active">Active</span></td>
+        <td class="action-btns">
+          <button>✏️</button>
+          <button class="del">🗑️</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="student-name">
+            <div class="avatar">ME</div>
+            Manzi Eugenia
+          </div>
+        </td>
+        <td>S4 MCB</td>
+        <td>2004-06-30</td>
+        <td>Male</td>
+        <td>Kayonza/Brimer</td>
+        <td>UBN000000BGCM</td>
+        <td><span class="badge active">Active</span></td>
+        <td class="action-btns">
+          <button>✏️</button>
+          <button class="del">🗑️</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="student-name">
+            <div class="avatar">MF</div>
+            Mucyo Faustine
+          </div>
+        </td>
+        <td>S1 D</td>
+        <td>2004-06-25</td>
+        <td>Female</td>
+        <td>Burera, Nyabihu</td>
+        <td>UBN000000BGCM</td>
+        <td><span class="badge active">Active</span></td>
+        <td class="action-btns">
+          <button>✏️</button>
+          <button class="del">🗑️</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="student-name">
+            <div class="avatar">UB</div>
+            Uramutse Bella
+          </div>
+        </td>
+        <td>S5 HS</td>
+        <td>2004-06-26</td>
+        <td>Male</td>
+        <td>Musanze, Nyagileo</td>
+        <td>UBN000000BGCM</td>
+        <td><span class="badge inactive">Inactive</span></td>
+        <td class="action-btns">
+          <button>✏️</button>
+          <button class="del">🗑️</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="student-name">
+            <div class="avatar">MB</div>
+            Mukandeze Bolero
+          </div>
+        </td>
+        <td>S3 HS</td>
+        <td>2004-06-26</td>
+        <td>Female</td>
+        <td>Huye, Tumba</td>
+        <td>UBN000000BGCM</td>
+        <td><span class="badge inactive">Inactive</span></td>
+        <td class="action-btns">
+          <button>✏️</button>
+          <button class="del">🗑️</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" /></td>
+        <td>
+          <div class="student-name">
+            <div class="avatar">LI</div>
+            Love Inabove
+          </div>
+        </td>
+        <td>S3 L</td>
+        <td>2004-06-25</td>
+        <td>Female</td>
+        <td>Gasabo, Kabeza</td>
+        <td>UBN000000BGCM</td>
+        <td><span class="badge active">Active</span></td>
+        <td class="action-btns">
+          <button>✏️</button>
+          <button class="del">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

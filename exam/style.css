@@ -1,0 +1,481 @@
+/* =============================================
+   SHARED STYLES
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #333;
+  background: #f0f2f5;
+  min-height: 100vh;
+}
+
+/* =============================================
+   Q1 & Q2 — AUTH FORMS
+   ============================================= */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e8eaf0;
+}
+
+.auth-card {
+  background: #fff;
+  padding: 36px 32px;
+  border-radius: 8px;
+  width: 340px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+
+.auth-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #4a90e2;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 36px;
+}
+
+.toggle-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  color: #888;
+  user-select: none;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 11px;
+  background: #1a1a2e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover { background: #16213e; }
+
+.btn-google {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.btn-google:hover { background: #f5f5f5; }
+
+.btn-google .g-icon {
+  font-weight: 700;
+  color: #4285F4;
+  font-size: 15px;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: #666;
+}
+
+.auth-footer a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.remember-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 12.5px;
+  color: #555;
+}
+
+.remember-row a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+/* =============================================
+   Q3 — STYLED LIST
+   ============================================= */
+.list-page {
+  padding: 30px;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.list-page .container h2 {
+  background: #4a90e2;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.list-page ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-page ul li {
+  padding: 8px 20px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.list-page ul li::before {
+  content: "◆ ";
+  color: #4a90e2;
+  font-size: 11px;
+}
+
+.list-page ul li:nth-child(3n+1) {
+  background: #dde8f7;
+}
+
+/* =============================================
+   Q4 — STUDENTS WITH CARDS TABLE
+   ============================================= */
+.table-page {
+  padding: 30px;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.table-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+}
+
+.filter-group {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+}
+
+.filter-btn select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+
+.data-table thead tr {
+  background: #f9fafb;
+  border-bottom: 2px solid #eee;
+}
+
+.data-table th {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.data-table td {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.data-table tbody tr:hover { background: #fafbff; }
+
+.student-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #c5d5ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  color: #2c5282;
+  flex-shrink: 0;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge.active   { background: #d4f0dc; color: #1a7a3a; }
+.badge.inactive { background: #fde8e8; color: #c0392b; }
+.badge.pending  { background: #fff3cd; color: #856404; }
+
+.action-btns {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.action-btns button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.action-btns button:hover { color: #4a90e2; }
+.action-btns .del:hover   { color: #e74c3c; }
+
+/* =============================================
+   Q5 — NEW ARRIVALS DASHBOARD
+   ============================================= */
+.dashboard-page {
+  padding: 30px;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.dashboard-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+.dashboard-header p {
+  font-size: 12px;
+  color: #888;
+  margin-top: 3px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+}
+
+.btn-create {
+  padding: 8px 18px;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.arrivals-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+}
+
+.arrivals-table thead tr {
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.arrivals-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.arrivals-table td {
+  padding: 16px;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.arrivals-table tbody tr:hover { background: #fafbff; }
+
+.person-info .name {
+  font-weight: 600;
+  color: #111;
+  font-size: 14px;
+}
+
+.person-info .skills {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.person-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.person-row {
+  display: flex;
+  align-items: center;
+}
+
+.earnings .amount {
+  font-weight: 700;
+  color: #111;
+  font-size: 14px;
+}
+
+.earnings .status {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.status-paid     { color: #27ae60 !important; }
+.status-pending  { color: #f39c12 !important; }
+.status-rejected { color: #e74c3c !important; }
+
+.company-info .company-name { font-weight: 600; color: #111; }
+.company-info .category     { font-size: 12px; color: #999; margin-top: 2px; }
+
+.stars { color: #f5c518; font-size: 14px; letter-spacing: 1px; }
+.stars-label { font-size: 11px; color: #999; margin-top: 2px; }
+
+.btn-view {
+  padding: 8px 16px;
+  background: #f0f4ff;
+  color: #4a90e2;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.btn-view:hover { background: #dce8fc; }
