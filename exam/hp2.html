@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            min-height: 60px;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 40px;
+            background-color: #d3d3d3;
+            border-radius: 4px;
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            width: 80px;
+            height: 15px;
+            background-color: #e8e8e8;
+            border-radius: 3px;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #d3d3d3;
+            border-radius: 3px;
+        }
+
+        .user-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #d3d3d3;
+            border-radius: 50%;
+        }
+
+        .cart-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #d3d3d3;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 300px;
+            background-color: #e8e8e8;
+            margin-bottom: 40px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            width: 200px;
+            height: 25px;
+            background-color: #d3d3d3;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        /* Product Grid */
+        .product-item {
+            float: left;
+            width: calc(25% - 12px);
+            margin-right: 16px;
+            margin-bottom: 40px;
+            cursor: pointer;
+        }
+
+        .product-item:nth-child(4n) {
+            margin-right: 0;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #d3d3d3;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .product-info {
+            padding: 0 4px;
+        }
+
+        .product-name {
+            width: 100%;
+            height: 14px;
+            background-color: #e0e0e0;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+
+        .product-description {
+            width: 90%;
+            height: 12px;
+            background-color: #e8e8e8;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            width: 60px;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+
+        .product-button {
+            width: 100%;
+            height: 30px;
+            background-color: #c0c0c0;
+            border-radius: 4px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f0f0f0;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            float: left;
+            width: calc(25% - 12px);
+            margin-right: 16px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section:nth-child(4n) {
+            margin-right: 0;
+        }
+
+        .footer-title {
+            width: 120px;
+            height: 16px;
+            background-color: #d3d3d3;
+            border-radius: 3px;
+            margin-bottom: 15px;
+        }
+
+        .footer-link {
+            width: 100%;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 2px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .product-item {
+                width: calc(33.333% - 11px);
+                margin-right: 16px;
+            }
+
+            .product-item:nth-child(4n) {
+                margin-right: 16px;
+            }
+
+            .product-item:nth-child(3n) {
+                margin-right: 0;
+            }
+
+            .footer-section {
+                width: calc(33.333% - 11px);
+            }
+
+            .footer-section:nth-child(4n) {
+                margin-right: 16px;
+            }
+
+            .footer-section:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-items {
+                display: none;
+            }
+
+            .product-item {
+                width: calc(50% - 8px);
+                margin-right: 16px;
+            }
+
+            .product-item:nth-child(3n) {
+                margin-right: 16px;
+            }
+
+            .product-item:nth-child(2n) {
+                margin-right: 0;
+            }
+
+            .footer-section {
+                width: calc(50% - 8px);
+            }
+
+            .footer-section:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                height: 200px;
+            }
+
+            .product-item {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .product-image {
+                height: 180px;
+            }
+
+            .footer-section {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <div class="logo"></div>
+            <div class="nav-items">
+                <div class="nav-item"></div>
+                <div class="nav-item"></div>
+                <div class="nav-item"></div>
+                <div class="nav-item"></div>
+            </div>
+        </div>
+        
+        <div class="navbar-right">
+            <div class="search-icon"></div>
+            <div class="user-icon"></div>
+            <div class="cart-icon"></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="section-title"></div>
+
+        <div class="container clearfix">
+            <!-- Product Item 1 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 2 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 3 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 4 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 5 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 6 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 7 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 8 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 9 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 10 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 11 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+
+            <!-- Product Item 12 -->
+            <div class="product-item">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-name"></div>
+                    <div class="product-description"></div>
+                    <div class="product-price"></div>
+                    <div class="product-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content clearfix">
+            <!-- Footer Section 1 -->
+            <div class="footer-section">
+                <div class="footer-title"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+            </div>
+
+            <!-- Footer Section 2 -->
+            <div class="footer-section">
+                <div class="footer-title"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+            </div>
+
+            <!-- Footer Section 3 -->
+            <div class="footer-section">
+                <div class="footer-title"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+            </div>
+
+            <!-- Footer Section 4 -->
+            <div class="footer-section">
+                <div class="footer-title"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+                <div class="footer-link"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
