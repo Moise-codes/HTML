@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float Layout Exercise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        /* Header H */
+        .header {
+            width: 100%;
+            background-color: #444444;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            clear: both;
+        }
+
+        /* Content A */
+        .content-a {
+            float: left;
+            width: 25%;
+            background-color: #FFA500;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content B */
+        .content-b {
+            float: left;
+            width: 25%;
+            background-color: #228B22;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content C */
+        .content-c {
+            float: left;
+            width: 25%;
+            background-color: #0000FF;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content D */
+        .content-d {
+            float: left;
+            width: 25%;
+            background-color: #6495ED;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content E */
+        .content-e {
+            float: left;
+            width: 75%;
+            background-color: #666666;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content F */
+        .content-f {
+            float: left;
+            width: 75%;
+            background-color: #0000FF;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content G */
+        .content-g {
+            clear: both;
+            width: 100%;
+            background-color: #FF0000;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Clearfix */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-a,
+            .content-b,
+            .content-c,
+            .content-d {
+                width: 50%;
+            }
+
+            .content-e,
+            .content-f {
+                width: 100%;
+            }
+
+            .content-d {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-a,
+            .content-b,
+            .content-c,
+            .content-d,
+            .content-e,
+            .content-f,
+            .content-g {
+                width: 100%;
+            }
+
+            .content-d {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header H -->
+        <div class="header">H</div>
+
+        <!-- Row 1: A, B, C, D -->
+        <div class="content-a">Content A</div>
+        <div class="content-b">Content B</div>
+        <div class="content-c">Content C</div>
+        <div class="content-d">Content D</div>
+
+        <!-- Row 2: E (with D continuing) -->
+        <div class="content-e">Content E</div>
+
+        <!-- Row 3: F (with D continuing) -->
+        <div class="content-f">Content F</div>
+
+        <!-- Footer G -->
+        <div class="content-g">Content G</div>
+    </div>
+</body>
+</html>
