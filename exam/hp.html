@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HP Style Skeleton Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #111827;
+    }
+
+    .navbar {
+      height: 72px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-item {
+      width: 90px;
+      height: 14px;
+      border-radius: 8px;
+      background: #dbe4f0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      padding: 60px;
+      background: white;
+      min-height: 500px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skeleton {
+      position: relative;
+      overflow: hidden;
+      background: #dfe6ef;
+      border-radius: 12px;
+    }
+
+    .skeleton::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150px;
+      width: 120px;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.7),
+        transparent
+      );
+      animation: loading 1.2s infinite;
+    }
+
+    @keyframes loading {
+      100% {
+        left: 100%;
+      }
+    }
+
+    .hero-title {
+      width: 85%;
+      height: 55px;
+    }
+
+    .hero-text {
+      width: 95%;
+      height: 18px;
+    }
+
+    .hero-text.small {
+      width: 70%;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 15px;
+    }
+
+    .btn-skeleton {
+      width: 160px;
+      height: 48px;
+      border-radius: 30px;
+    }
+
+    .hero-image {
+      border-radius: 24px;
+      min-height: 380px;
+    }
+
+    .section {
+      padding: 60px;
+    }
+
+    .section-header {
+      width: 260px;
+      height: 38px;
+      margin-bottom: 35px;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 220px;
+      border-radius: 0;
+    }
+
+    .card-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-title {
+      width: 75%;
+      height: 24px;
+    }
+
+    .card-text {
+      width: 100%;
+      height: 14px;
+    }
+
+    .card-text.short {
+      width: 60%;
+    }
+
+    .card-button {
+      width: 120px;
+      height: 40px;
+      margin-top: 10px;
+      border-radius: 25px;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 28px;
+      margin-top: 50px;
+    }
+
+    .featured-large,
+    .featured-side {
+      background: white;
+      border-radius: 28px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 320px;
+      border-radius: 20px;
+    }
+
+    .footer {
+      background: #111827;
+      padding: 60px;
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-title {
+      width: 120px;
+      height: 18px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .footer-line {
+      width: 90%;
+      height: 12px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        padding: 0 20px;
+      }
+
+      .section,
+      .hero,
+      .footer {
+        padding: 30px 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"></div>
+
+    <div class="nav-links">
+      <div class="nav-item skeleton"></div>
+      <div class="nav-item skeleton"></div>
+      <div class="nav-item skeleton"></div>
+      <div class="nav-item skeleton"></div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-title skeleton"></div>
+      <div class="hero-text skeleton"></div>
+      <div class="hero-text skeleton"></div>
+      <div class="hero-text small skeleton"></div>
+
+      <div class="hero-buttons">
+        <div class="btn-skeleton skeleton"></div>
+        <div class="btn-skeleton skeleton"></div>
+      </div>
+    </div>
+
+    <div class="hero-image skeleton"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-header skeleton"></div>
+
+    <div class="grid-layout">
+      <div class="card">
+        <div class="card-image skeleton"></div>
+        <div class="card-content">
+          <div class="card-title skeleton"></div>
+          <div class="card-text skeleton"></div>
+          <div class="card-text skeleton"></div>
+          <div class="card-text short skeleton"></div>
+          <div class="card-button skeleton"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image skeleton"></div>
+        <div class="card-content">
+          <div class="card-title skeleton"></div>
+          <div class="card-text skeleton"></div>
+          <div class="card-text skeleton"></div>
+          <div class="card-text short skeleton"></div>
+          <div class="card-button skeleton"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image skeleton"></div>
+        <div class="card-content">
+          <div class="card-title skeleton"></div>
+          <div class="card-text skeleton"></div>
+          <div class="card-text skeleton"></div>
+          <div class="card-text short skeleton"></div>
+          <div class="card-button skeleton"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-grid">
+      <div class="featured-large">
+        <div class="featured-image skeleton"></div>
+        <div class="hero-title skeleton"></div>
+        <div class="hero-text skeleton"></div>
+        <div class="hero-text small skeleton"></div>
+      </div>
+
+      <div class="featured-side">
+        <div class="card-image skeleton"></div>
+        <div class="card-title skeleton"></div>
+        <div class="card-text skeleton"></div>
+        <div class="card-button skeleton"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-block">
+      <div class="footer-title skeleton"></div>
+      <div class="footer-line skeleton"></div>
+      <div class="footer-line skeleton"></div>
+      <div class="footer-line skeleton"></div>
+    </div>
+
+    <div class="footer-block">
+      <div class="footer-title skeleton"></div>
+      <div class="footer-line skeleton"></div>
+      <div class="footer-line skeleton"></div>
+      <div class="footer-line skeleton"></div>
+    </div>
+
+    <div class="footer-block">
+      <div class="footer-title skeleton"></div>
+      <div class="footer-line skeleton"></div>
+      <div class="footer-line skeleton"></div>
+      <div class="footer-line skeleton"></div>
+    </div>
+  </footer>
+
+</body>
+</html>
